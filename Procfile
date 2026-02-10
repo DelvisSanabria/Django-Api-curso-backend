@@ -1,1 +1,1 @@
-web: gunicorn firstry.wsgi --log-file -
+web: python manage.py collectstatic gunicorn --chdir firstry firstry.wsgi:application
