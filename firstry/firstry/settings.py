@@ -142,9 +142,13 @@ REST_FRAMEWORK = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # creamos un nuevo directorio llamado staticfiles para almacenar los archivos estáticos recopilados por collectstatic. Esto es necesario para que WhiteNoise pueda servir los archivos estáticos en producción. Asegúrate de ejecutar python manage.py collectstatic antes de desplegar tu aplicación para recopilar todos los archivos estáticos en el directorio staticfiles.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
