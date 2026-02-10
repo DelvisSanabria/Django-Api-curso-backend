@@ -164,4 +164,5 @@ SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'True').lower() in (
 #Para permitir que tu aplicación Django acepte solicitudes de dominios específicos, debes configurar la lista ALLOWED_HOSTS en tu archivo settings.py. Esta lista debe incluir los dominios desde los cuales esperas recibir solicitudes. Por ejemplo, si tu aplicación está alojada en Railway, puedes agregar el dominio de tu aplicación a ALLOWED_HOSTS de la siguiente manera:
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app',
+    'http://localhost:3000',
 ]
