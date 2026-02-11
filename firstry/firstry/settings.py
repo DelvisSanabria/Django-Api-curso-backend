@@ -86,9 +86,19 @@ WSGI_APPLICATION = 'firstry.wsgi.application'
 
 import os
 import dj_database_url
+# Para poder cargar las variables de entorno en desarrollo desde un archivo .env, es necesario instalar la librería python-dotenv. Puedes hacerlo ejecutando el siguiente comando en tu terminal:
+
+# pip install python-dotenv
+
+import dotenv
+# Carga las variables de entorno desde el archivo .env
+dotenv.load_dotenv()
+
+#comenta o borra lo anterior en produccion, ya que en producción las variables de entorno se configuran directamente en el entorno de ejecución (como Railway) y no es necesario cargar un archivo .env.
 
 # Configuración de la base de datos utilizando la librería dj_database_url para manejar la URL de la base de datos proporcionada por Railway. Si no se encuentra la variable de entorno DATABASE_URL, se utiliza una base de datos SQLite local para desarrollo.
 DATABASE_URL = os.environ.get('DATABASE_URL')
+
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
